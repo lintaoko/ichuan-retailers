@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Select;
 
 public interface ShopCarMapper {
     //购物车查询
-    @Select("select * form shopcar where UserId=#{UserId}")
+    @Select("select * from shopcar where UserId=#{UserId}")
     ShopCar queryShopCarByUserId(@Param("UserId")Integer userId);
     //购物车添加
     @Insert("insert into shopcar(UserId,GoodsName,GoodsImg,GoodsPrice,PurchaseQuantity) VALUES(#{UserId},#{GoodsName},#{GoodsImg},#{GoodsPrice},#{PurchaseQuantity})")

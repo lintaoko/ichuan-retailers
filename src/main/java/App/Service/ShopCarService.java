@@ -3,7 +3,6 @@ package App.Service;
 import App.Domain.ShopCar;
 import App.Mapper.ShopCarMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

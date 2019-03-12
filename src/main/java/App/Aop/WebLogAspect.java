@@ -20,7 +20,7 @@ public class WebLogAspect {
 
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
-    @Pointcut("execution(public * App.Controller.JspController.*(..))")
+    @Pointcut("execution(public * App.Controller.*.*(..))")
     public void webLog(){}
 
     @Before("webLog()")
