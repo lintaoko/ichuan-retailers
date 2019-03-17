@@ -17,22 +17,18 @@ public class ShopCarService {
 
     //购物车查询
     public List<ShopCar> queryShopCarByUserId(Integer userId){
-       List<ShopCar> selectResult=shopCarMapper.queryShopCarByUserId(userId);
-       return  selectResult;
+        return shopCarMapper.queryShopCarByUserId(userId);
     }
     //购物车添加
     public Integer shopCarInsert (Integer userId,String goodsName,String goodsImg,Double goodsPrice, Integer purchaseQuantity){
-        Integer insertResult=shopCarMapper.shopCarInsert(userId, goodsName, goodsImg, goodsPrice, purchaseQuantity);
-        return insertResult;
+        return shopCarMapper.shopCarInsert(userId, goodsName, goodsImg, goodsPrice, purchaseQuantity);
     }
     //购物车单项删除
     public Integer shopCarDeleteByShopCarId(Integer shopCarId){
-        Integer deleteResult=shopCarMapper.shopCarDeleteByShopCarId(shopCarId);
-        return deleteResult;
+        return shopCarMapper.shopCarDeleteByShopCarId(shopCarId);
     }
     //购物车清空
     public Integer shopCarDeleteByUserId(Integer userId){
-        Integer deleteResult=shopCarMapper.shopCarDeleteByUserId(userId);
-        return deleteResult;
+        return shopCarMapper.shopCarDeleteByUserId(userId);
     }
 }

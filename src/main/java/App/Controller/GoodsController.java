@@ -34,25 +34,21 @@ public class GoodsController {
     //查询货物从样式
     @GetMapping("api/goods/{GoodsType}/goodstype")
     public List<Goods> queryGoodsInfByGoodsType(@PathVariable("GoodsType")Integer goodsType) {
-        List<Goods> result=goodsService.queryGoodsInfByGoodsType(goodsType);
-        return result;
+        return goodsService.queryGoodsInfByGoodsType(goodsType);
     }
     //添加货物
     @PostMapping("api/goods")
     public Integer goodsInsert(String goodsName , String goodsImg , Integer goodsQuantity, JsonObject goodsinf, Integer goodsType){
-        Integer result = goodsService.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
-        return result;
+        return goodsService.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
     }
     //删除货物
     @DeleteMapping("api/goods/{GoodsId}/goodsid")
     public Integer goodsDeleteByGoodsId (@PathVariable("GoodsId")Integer goodsId){
-        Integer result =goodsService.goodsDeleteByGoodsId(goodsId);
-        return result;
+        return goodsService.goodsDeleteByGoodsId(goodsId);
     }
     //货物数量变更
     @PutMapping("api/goods/{GoodsQuantity}/goodsquantity")
     public Integer goodsUpdateGoodsQuantity (@PathVariable("GoodsQuantity")Integer goodsQuantity){
-        Integer result =goodsService.goodsUpdateGoodsQuantity(goodsQuantity);
-        return  result;
+        return goodsService.goodsUpdateGoodsQuantity(goodsQuantity);
     }
 }

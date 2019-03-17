@@ -14,17 +14,14 @@ public class GoodsTypeService {
 
     //查询类别
     public GoodsType queryGoodsTypeByTypeId( Integer typeid){
-        GoodsType selectResult=goodsTypeMapper.queryGoodsTypeByTypeId(typeid);
-        return selectResult;
+        return goodsTypeMapper.queryGoodsTypeByTypeId(typeid);
     }
     //增加类别
     public Integer goodsTypeInsert ( String typeName){
-        Integer insertResult =goodsTypeMapper.goodsTypeInsert(typeName);
-        return insertResult;
+        return goodsTypeMapper.goodsTypeInsert(typeName);
     }
     //删除类别
     public Integer goodsTypeDeleteByTypeId(Integer typeId){
-        Integer deleteResult =goodsTypeMapper.goodsTypeDeleteByTypeId(typeId);
-        return deleteResult;
+        return goodsTypeMapper.goodsTypeDeleteByTypeId(typeId);
     }
 }

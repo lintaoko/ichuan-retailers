@@ -18,36 +18,30 @@ public class GoodsService {
 
     //查询单件货物包括样式名
     public Goods queryGoodsAllInfByGoodsId(Integer goodsId) {
-        Goods selectResult = goodsMapper.queryGoodsAllInfByGoodsId(goodsId);
-        return selectResult;
+        return goodsMapper.queryGoodsAllInfByGoodsId(goodsId);
     }
 
     //查询单件货物不包括样式名
     public Goods queryGoodsInfByGoodsId(Integer goodsId) {
-        Goods selectResult = goodsMapper.queryGoodsInfByGoodsId(goodsId);
-        return selectResult;
+        return goodsMapper.queryGoodsInfByGoodsId(goodsId);
     }
 
     //查询货物从样式
     public List<Goods> queryGoodsInfByGoodsType(Integer goodsType) {
-        List<Goods> selectResult = goodsMapper.queryGoodsInfByGoodsTyp(goodsType);
-        return selectResult;
+        return goodsMapper.queryGoodsInfByGoodsTyp(goodsType);
     }
 
     //添加货物
     public Integer goodsInsert(String goodsName ,String goodsImg , Integer goodsQuantity, JsonObject goodsinf,Integer goodsType){
-        Integer insertResult = goodsMapper.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
-        return insertResult;
+        return goodsMapper.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
     }
     //删除货物
     public Integer goodsDeleteByGoodsId (Integer goodsId){
-        Integer deleteResult =goodsMapper.goodsDeleteByGoodsId(goodsId);
-        return deleteResult;
+        return goodsMapper.goodsDeleteByGoodsId(goodsId);
     }
     //货物数量变更
     public Integer goodsUpdateGoodsQuantity (Integer goodsQuantity){
-        Integer updateResult =goodsMapper.goodsUpdateGoodsQuantity(goodsQuantity);
-        return  updateResult;
+        return goodsMapper.goodsUpdateGoodsQuantity(goodsQuantity);
     }
 
 

@@ -15,17 +15,14 @@ public class GoodsEvaluationService {
 
     //评论查询
     public List<GoodsEvaluation> queryGoodsEvaluationByGoodsId(Integer goodsId){
-        List<GoodsEvaluation> selectResult =goodsEvaluationMapper.queryGoodsEvaluationByGoodsId(goodsId);
-        return selectResult;
+        return goodsEvaluationMapper.queryGoodsEvaluationByGoodsId(goodsId);
     }
     //评论添加
     public Integer goodsEvaluationInsert(Integer goodsId,  Date evaluationTime, String evaluationType, String evaluationContent,String evaluationImg){
-        Integer insertResult =goodsEvaluationMapper.goodsEvaluationInsert(goodsId, evaluationTime, evaluationType, evaluationContent, evaluationImg);
-        return  insertResult;
+        return goodsEvaluationMapper.goodsEvaluationInsert(goodsId, evaluationTime, evaluationType, evaluationContent, evaluationImg);
     }
     //删除评论
     public Integer goodsEvaluationDeleteByGoodsEvalutionId( Integer goodsEvaluationId)throws Exception {
-        Integer deleteResult = goodsEvaluationMapper.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
-        return deleteResult;
+        return goodsEvaluationMapper.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
     }
 }
