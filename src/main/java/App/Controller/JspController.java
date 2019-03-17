@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
@@ -17,6 +18,7 @@ public class JspController {
         System.out.println("Turn to Suuu.jsp");
         return "login";
     }
+
     //全局错误测试
     @RequestMapping("/errortest")
     public String bbb(){

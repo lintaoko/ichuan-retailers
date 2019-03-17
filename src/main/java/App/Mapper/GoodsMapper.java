@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import org.apache.ibatis.annotations.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface GoodsMapper {
     //查询单件货物包括样式名
@@ -15,7 +16,7 @@ public interface GoodsMapper {
     Goods queryGoodsInfByGoodsId (@Param("GoodsId") Integer goodsId);
     //查询货物从样式
     @Select("select * from goods where GoodsType=#{GoodsType} ")
-    ArrayList<Goods> queryGoodsInfByGoodsTyp(@Param("GoodsType") Integer goodsType);
+    List<Goods> queryGoodsInfByGoodsTyp(@Param("GoodsType") Integer goodsType);
     //添加货物
     @Insert("insert into goods(GoodsName,GoodsImg,GoodsQuantity,GoodsInf,GoodsType) values(#{GoodsName},#{GoodsImg},#{GoodsQuantity},#{GoodsInf},#{GoodsType})")
     Integer goodsInsert(@Param("GoodsName")String goodsName , @Param("GoodsImg")String goodsImg , @Param("GoodsQuantity") Integer goodsQuantity, @Param("GoodsInf")JsonObject goodsInf,@Param("GoodsType")Integer goodsType);

@@ -6,6 +6,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class ShopCarService {
@@ -14,8 +16,8 @@ public class ShopCarService {
     ShopCarMapper shopCarMapper;
 
     //购物车查询
-    public  ShopCar queryShopCarByUserId(Integer userId){
-       ShopCar selectResult=shopCarMapper.queryShopCarByUserId(userId);
+    public List<ShopCar> queryShopCarByUserId(Integer userId){
+       List<ShopCar> selectResult=shopCarMapper.queryShopCarByUserId(userId);
        return  selectResult;
     }
     //购物车添加

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class GoodsEvaluationService {
@@ -13,8 +14,8 @@ public class GoodsEvaluationService {
     GoodsEvaluationMapper goodsEvaluationMapper;
 
     //评论查询
-    public GoodsEvaluation queryGoodsEvaluationByGoodsId(Integer goodsId){
-        GoodsEvaluation selectResult =goodsEvaluationMapper.queryGoodsEvaluationByGoodsId(goodsId);
+    public List<GoodsEvaluation> queryGoodsEvaluationByGoodsId(Integer goodsId){
+        List<GoodsEvaluation> selectResult =goodsEvaluationMapper.queryGoodsEvaluationByGoodsId(goodsId);
         return selectResult;
     }
     //评论添加

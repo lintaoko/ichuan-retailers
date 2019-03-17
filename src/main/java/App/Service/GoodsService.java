@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.security.PublicKey;
 import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class GoodsService {
@@ -28,8 +29,8 @@ public class GoodsService {
     }
 
     //查询货物从样式
-    public ArrayList<Goods> queryGoodsInfByGoodsType(Integer goodsType) {
-        ArrayList<Goods> selectResult = goodsMapper.queryGoodsInfByGoodsTyp(goodsType);
+    public List<Goods> queryGoodsInfByGoodsType(Integer goodsType) {
+        List<Goods> selectResult = goodsMapper.queryGoodsInfByGoodsTyp(goodsType);
         return selectResult;
     }
 

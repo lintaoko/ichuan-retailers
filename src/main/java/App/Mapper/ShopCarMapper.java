@@ -6,10 +6,12 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
+import java.util.List;
+
 public interface ShopCarMapper {
     //购物车查询
     @Select("select * from shopcar where UserId=#{UserId}")
-    ShopCar queryShopCarByUserId(@Param("UserId")Integer userId);
+    List<ShopCar> queryShopCarByUserId(@Param("UserId")Integer userId);
     //购物车添加
     @Insert("insert into shopcar(UserId,GoodsName,GoodsImg,GoodsPrice,PurchaseQuantity) VALUES(#{UserId},#{GoodsName},#{GoodsImg},#{GoodsPrice},#{PurchaseQuantity})")
     Integer shopCarInsert (@Param("UserId") Integer userId,@Param("GoodsName")String goodsName,@Param("GoodsImg")String goodsImg,@Param("GoodsPrice")Double goodsPrice,@Param("PurchaseQuantity") Integer purchaseQuantity);
