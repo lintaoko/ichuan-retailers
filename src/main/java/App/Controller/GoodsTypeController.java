@@ -20,7 +20,7 @@ public class GoodsTypeController {
     }
 
     //增加类别
-    @PutMapping("api/goodstype/{TypeName}/typename")
+    @PostMapping("api/goodstype/{TypeName}/typename")
     public Integer goodsTypeInsert(@PathVariable("TypeName") String typeName) {
         Integer result = goodsTypeService.goodsTypeInsert(typeName);
         return result;

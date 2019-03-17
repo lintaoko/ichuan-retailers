@@ -21,16 +21,17 @@ public class GoodsEvaluationController {
         return result;
     }
     //评论添加
-    @PutMapping("api/goodsevaluation")
-    public Integer goodsEvaluationInsert(Integer goodsId, Date evaluationTime, String evaluationType, String evaluationContent,String evaluationImg){
+    @PostMapping(value = "api/goodsevaluation")
+    public Integer goodsEvaluationInsert(Integer goodsId,String evaluationType, String evaluationContent,String evaluationImg){
+        Date evaluationTime=new Date();
         Integer result =goodsEvaluationService.goodsEvaluationInsert(goodsId, evaluationTime, evaluationType, evaluationContent, evaluationImg);
         return  result;
 }
     //删除评论
     @DeleteMapping("api/goodsevaluation/{GoodsEvaluationId}/goodsEvaluationId")
-    public Integer goodsEvaluationDeleteByGoodsEvalutionId( @PathVariable("GoodsEvaluationId") Integer goodsEvaluationId){
-        Integer deleteResult =goodsEvaluationService.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
-        return  deleteResult;
+    public Integer goodsEvaluationDeleteByGoodsEvalutionId( @PathVariable("GoodsEvaluationId") Integer goodsEvaluationId)throws Exception{
+        Integer result =goodsEvaluationService.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
+        return result;
     }
 
 }

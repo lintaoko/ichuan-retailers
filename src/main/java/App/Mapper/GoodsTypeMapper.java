@@ -15,6 +15,6 @@ public interface GoodsTypeMapper {
     @Insert("insert into goods_type(TypeName) values(#{TypeName}")
     Integer goodsTypeInsert (@Param("TypeName") String typeName);
     //删除类别
-    @Delete("delete goods_type where TypeId=#{TypeId}")
+    @Delete("delete from goods_type where TypeId=#{TypeId}")
     Integer goodsTypeDeleteByTypeId(@Param("TypeId") Integer typeId);
 }

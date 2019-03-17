@@ -24,11 +24,8 @@ public class GoodsEvaluationService {
         return  insertResult;
     }
     //删除评论
-    public Integer goodsEvaluationDeleteByGoodsEvalutionId( Integer goodsEvaluationId){
-        Integer deleteResult =goodsEvaluationMapper.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
-        return  deleteResult;
+    public Integer goodsEvaluationDeleteByGoodsEvalutionId( Integer goodsEvaluationId)throws Exception {
+        Integer deleteResult = goodsEvaluationMapper.goodsEvaluationDeleteByGoodsEvalutionId(goodsEvaluationId);
+        return deleteResult;
     }
-
-
-
 }

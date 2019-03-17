@@ -17,6 +17,6 @@ public interface GoodsEvaluationMapper {
     @Insert("insert into goods_evaluation(GoodsId,EvaluationTime,EvaluationType,EvaluationContent,EvaluationImg) VALUES(#{GoodsId},#{EvaluationTime},#{EvaluationType},#{EvaluationContent},#{EvaluationImg})")
     Integer goodsEvaluationInsert(@Param("GoodsId")Integer goodsId, @Param("EvaluationTime")Date evaluationTime,@Param("EvaluationType") String evaluationType,@Param("EvaluationContent")String evaluationContent,@Param("EvaluationImg")String evaluationImg);
     //删除评论
-    @Delete("delete goods_evaluation where GoodsEvaluationId=#{GoodsEvaluationId}")
+    @Delete("delete from goods_evaluation where GoodsEvaluationId=#{GoodsEvaluationId}")
     Integer goodsEvaluationDeleteByGoodsEvalutionId(@Param("GoodsEvaluationId") Integer goodsEvaluationId);
 }

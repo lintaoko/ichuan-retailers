@@ -21,7 +21,7 @@ public class ShopCarController {
         return result;
     }
     //购物车添加
-    @PutMapping("api/shopcar/")
+    @PostMapping("api/shopcar")
     public Integer shopCarInsert (Integer userId,String goodsName,String goodsImg,Double goodsPrice, Integer purchaseQuantity){
         Integer result =shopCarService.shopCarInsert(userId, goodsName, goodsImg, goodsPrice, purchaseQuantity);
         return  result;

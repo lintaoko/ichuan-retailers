@@ -21,7 +21,7 @@ public interface GoodsMapper {
     @Insert("insert into goods(GoodsName,GoodsImg,GoodsQuantity,GoodsInf,GoodsType) values(#{GoodsName},#{GoodsImg},#{GoodsQuantity},#{GoodsInf},#{GoodsType})")
     Integer goodsInsert(@Param("GoodsName")String goodsName , @Param("GoodsImg")String goodsImg , @Param("GoodsQuantity") Integer goodsQuantity, @Param("GoodsInf")JsonObject goodsInf,@Param("GoodsType")Integer goodsType);
     //删除货物
-    @Delete("delete goods where GoodsId=#{GoodsId}")
+    @Delete("delete from goods where GoodsId=#{GoodsId}")
     Integer goodsDeleteByGoodsId (@Param("GoodsId") Integer goodsId);
     //货物数量变更
     @Update("update goods set GoodsQuantity=#{GoodsQuantity}")
