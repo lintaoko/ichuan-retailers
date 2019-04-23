@@ -1,17 +1,19 @@
 package App.Service;
 
 import App.Domain.Goods;
+import App.Domain.GoodsDTO;
 import App.Mapper.GoodsMapper;
-import com.google.gson.JsonObject;
-import org.apache.ibatis.annotations.Param;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Transactional
 public class GoodsService {
     @Autowired
     GoodsMapper goodsMapper;
@@ -27,13 +29,15 @@ public class GoodsService {
     }
 
     //查询货物从样式
-    public List<Goods> queryGoodsInfByGoodsType(Integer goodsType) {
-        return goodsMapper.queryGoodsInfByGoodsTyp(goodsType);
+    public PageInfo<GoodsDTO> queryGoodsInfByGoodsType(Integer goodsType, Integer pageNum, Integer pageSize) {
+        PageHelper.startPage(pageNum,pageSize);
+        List<GoodsDTO> data =goodsMapper.queryGoodsInfByGoodsType(goodsType);
+        return new PageInfo<>(data);
     }
 
     //添加货物
-    public Integer goodsInsert(String goodsName ,String goodsImg , Integer goodsQuantity, JsonObject goodsinf,Integer goodsType){
-        return goodsMapper.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
+    public Integer goodsInsert(String goodsName , String goodsImg , Integer goodsQuantity, String goodsInf, Integer goodsType){
+        return goodsMapper.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsInf, goodsType);
     }
     //删除货物
     public Integer goodsDeleteByGoodsId (Integer goodsId){

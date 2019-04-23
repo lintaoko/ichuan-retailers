@@ -1,14 +1,17 @@
 package App.Controller;
 
 import App.Domain.Goods;
+import App.Domain.GoodsDTO;
 import App.Service.GoodsService;
-import com.google.gson.JsonObject;
+
+import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @Slf4j
@@ -18,28 +21,31 @@ public class GoodsController {
     GoodsService goodsService;
 
     //查询单件货物包括样式名
-    @GetMapping("api/goods/{GoodsId}/goodsid/all")
+    @GetMapping("api/goods/{GoodsId}/goodsid/all/")
     public Goods queryGoodsAllInfByGoodsId (@PathVariable("GoodsId") Integer goodsId){
-        Goods result =goodsService.queryGoodsAllInfByGoodsId(goodsId);
-        System.out.println(result);
-        return result;
+        return goodsService.queryGoodsAllInfByGoodsId(goodsId);
     }
     //查询单件货物不包括样式名
     @GetMapping("api/goods/{GoodsId}/goodsid")
     public Goods queryGoodsInfByGoodsId (@PathVariable("GoodsId") Integer goodsId){
-        Goods result =goodsService.queryGoodsInfByGoodsId(goodsId);
-        System.out.println(result);
-        return result;
+        return goodsService.queryGoodsInfByGoodsId(goodsId);
     }
     //查询货物从样式
-    @GetMapping("api/goods/{GoodsType}/goodstype")
-    public List<Goods> queryGoodsInfByGoodsType(@PathVariable("GoodsType")Integer goodsType) {
-        return goodsService.queryGoodsInfByGoodsType(goodsType);
+    @GetMapping("api/goods/{GoodsType}/goodstype/{pageNum}/{pageSize}")
+    public Map queryGoodsInfByGoodsType(@PathVariable("GoodsType")Integer goodsType, @PathVariable("pageNum") Integer pageNum, @PathVariable("pageSize") Integer pageSize) {
+        PageInfo<GoodsDTO> goodsDto=goodsService.queryGoodsInfByGoodsType(goodsType,pageNum,pageSize);
+        for (GoodsDTO g :goodsDto.getList()) {
+            g.setGoodsInfJson(JSONObject.parseObject(g.getGoodsInf()));
+        }
+        Map<String,Object> map=new HashMap<>();
+        map.put("list",goodsDto.getList());
+        map.put("size",goodsDto.getTotal());
+        return map;
     }
     //添加货物
     @PostMapping("api/goods")
-    public Integer goodsInsert(String goodsName , String goodsImg , Integer goodsQuantity, JsonObject goodsinf, Integer goodsType){
-        return goodsService.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsinf, goodsType);
+    public Integer goodsInsert(String goodsName , String goodsImg , Integer goodsQuantity, String goodsInf, Integer goodsType){
+        return goodsService.goodsInsert(goodsName, goodsImg, goodsQuantity, goodsInf, goodsType);
     }
     //删除货物
     @DeleteMapping("api/goods/{GoodsId}/goodsid")

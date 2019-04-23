@@ -1,10 +1,9 @@
 package App.Mapper;
 
 import App.Domain.Goods;
-import com.google.gson.JsonObject;
+import App.Domain.GoodsDTO;
 import org.apache.ibatis.annotations.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface GoodsMapper {
@@ -16,10 +15,10 @@ public interface GoodsMapper {
     Goods queryGoodsInfByGoodsId (@Param("GoodsId") Integer goodsId);
     //查询货物从样式
     @Select("select * from goods where GoodsType=#{GoodsType} ")
-    List<Goods> queryGoodsInfByGoodsTyp(@Param("GoodsType") Integer goodsType);
+    List<GoodsDTO> queryGoodsInfByGoodsType(@Param("GoodsType") Integer goodsType);
     //添加货物
     @Insert("insert into goods(GoodsName,GoodsImg,GoodsQuantity,GoodsInf,GoodsType) values(#{GoodsName},#{GoodsImg},#{GoodsQuantity},#{GoodsInf},#{GoodsType})")
-    Integer goodsInsert(@Param("GoodsName")String goodsName , @Param("GoodsImg")String goodsImg , @Param("GoodsQuantity") Integer goodsQuantity, @Param("GoodsInf")JsonObject goodsInf,@Param("GoodsType")Integer goodsType);
+    Integer goodsInsert(@Param("GoodsName")String goodsName , @Param("GoodsImg")String goodsImg , @Param("GoodsQuantity") Integer goodsQuantity, @Param("GoodsInf") String goodsInf, @Param("GoodsType")Integer goodsType);
     //删除货物
     @Delete("delete from goods where GoodsId=#{GoodsId}")
     Integer goodsDeleteByGoodsId (@Param("GoodsId") Integer goodsId);

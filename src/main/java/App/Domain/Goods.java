@@ -1,8 +1,11 @@
 package App.Domain;
 
-import com.google.gson.JsonObject;
+
+import com.alibaba.fastjson.JSONObject;
 import lombok.Data;
 import lombok.ToString;
+
+import java.util.Map;
 
 @Data
 @ToString
@@ -11,7 +14,7 @@ public class Goods {
     private String goodsName;
     private String goodsImg;
     private Integer goodsQuantity;
-    private JsonObject goodInf;
+    private String goodsInf;
     private Integer goodsType;
-    private String goodsTypeName;
+    private String TypeName;
 }
