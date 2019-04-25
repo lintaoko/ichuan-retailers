@@ -3,3 +3,4 @@ target/
 logs/
 classes/
 transaction-logs/
+*.properties/
